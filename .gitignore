@@ -1,3 +1,7 @@
+# Data
+data/input/temp
+data/output/
+
 # Scrapy
 scrapy/
 
