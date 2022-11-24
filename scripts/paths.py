@@ -1,6 +1,5 @@
 """
 Pastas do Projeto
-
 """
 
 
@@ -36,8 +35,15 @@ input_path_temp.mkdir(exist_ok=True)
 input_path_tab = input_path / 'tab'
 input_path_tab.mkdir(exist_ok=True)
 
+input_path_down = input_path / 'down'
+input_path_down.mkdir(exist_ok=True)
+
 output_path = data_path / 'output'
 output_path.mkdir(exist_ok=True)
+
+# Docs
+docs_path = project_path / 'docs'
+docs_path.mkdir(exist_ok=True)
 
 
 if __name__ == '__main__':

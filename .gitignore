@@ -1,6 +1,8 @@
 # Data
 data/input/temp
+data/input/down
 data/output/
+data/
 
 # Scrapy
 scrapy/
