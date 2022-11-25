@@ -1,5 +1,6 @@
 """
 Pastas do Projeto
+nov.22
 """
 
 
@@ -26,11 +27,12 @@ driver_path.mkdir(exist_ok=True)
 data_path = project_path / 'data'
 data_path.mkdir(exist_ok=True)
 
+# Input
 input_path = data_path / 'input'
 input_path.mkdir(exist_ok=True)
 
-input_path_temp = input_path / 'temp'
-input_path_temp.mkdir(exist_ok=True)
+input_path_tab_temp = input_path / 'tab_temp'
+input_path_tab_temp.mkdir(exist_ok=True)
 
 input_path_tab = input_path / 'tab'
 input_path_tab.mkdir(exist_ok=True)
@@ -38,8 +40,12 @@ input_path_tab.mkdir(exist_ok=True)
 input_path_down = input_path / 'down'
 input_path_down.mkdir(exist_ok=True)
 
+# Output
 output_path = data_path / 'output'
 output_path.mkdir(exist_ok=True)
+
+output_path_gpkg = output_path / 'gpkg'
+output_path_gpkg.mkdir(exist_ok=True)
 
 # Docs
 docs_path = project_path / 'docs'

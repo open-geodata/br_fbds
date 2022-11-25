@@ -1,8 +1,9 @@
 # Data
-data/input/temp
-data/input/down
-data/output/
 data/
+data/input/down
+data/input/tab_temp
+data/input/temp_files
+data/output/
 
 # Scrapy
 scrapy/
