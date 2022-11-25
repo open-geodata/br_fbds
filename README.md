@@ -4,13 +4,31 @@
 
 <br>
 
-Em novembro de 2022 surgiu a necessidade/curiosidade de melhor compreender os dados de hidrologia e uso do solo disponiibilizados pela [Fundação Brasileira para o Desenvolvimento Sustentável (FBDS)](https://www.fbds.org.br). Os dados são disponibilizados em um [**repositório público de mapas e _shapefiles_ para _download_**](https://geo.fbds.org.br/).
+Em novembro de 2022 surgiu a necessidade/curiosidade de melhor compreender os dados de hidrologia e uso do solo disponibilizados pela [Fundação Brasileira para o Desenvolvimento Sustentável (FBDS)](https://www.fbds.org.br). Os dados são disponibilizados em um [**repositório público de mapas e _shapefiles_ para _download_**](https://geo.fbds.org.br/).
+
+Desenvolvi _scripts_ para fazer o _download_ dos _layers_ do estado de São Paulo. Podem ser usados para outros estados. O resultado forma a criação de 7 _layers_:
+
+| id  | _Layer_         | Subpasta    | Tamanho |
+| :-- | :-------------- | :---------- | ------: |
+| 1   | app             | APP         |  994 MB |
+| 2   | app_uso         | APP         | 2,07 GB |
+| 3   | hidro_simples   | HIDROGRAFIA |  673 MB |
+| 4   | hidro_duplas    | HIDROGRAFIA | 93,8 MB |
+| 5   | hidro_nascentes | HIDROGRAFIA | 60,0 MB |
+| 6   | hidro_massa     | HIDROGRAFIA |  124 MB |
+| 7   | uso             | USO         | 3,89 GB |
+
+<br>
 
 Abaixo segue informações obtidas no _site_ da Fundação:
 
 > Em 2015 a [Fundação Brasileira para o Desenvolvimento Sustentável](https://www.fbds.org.br) deu início ao Projeto de Mapeamento em Alta Resolução dos Biomas Brasileiros, que desde então vem produzindo dados primários de uso e cobertura do solo, hidrografia e Áreas de Preservação Permanente em uma resolução inédita para os biomas brasileiros (5 metros).
 
 > Os resultados do mapeamento vêm sendo utilizados para apoiar a execução de políticas públicas - em especial a implementação do Cadastro Ambiental Rural, o planejamento territorial, a realização de pesquisas acadêmicas e o desenvolvimento de tecnologias. Até o momento o mapeamento já foi concluído para mais de 4 mil municípios brasileiros abrangidos pelos biomas Mata Atlântica e Cerrado.
+
+<br>
+
+![qgis](docs/imgs/qgis.png)
 
 <br>
 
@@ -43,7 +61,7 @@ Usando o _./scripts_/**01_get_data.ipynb**, foi utilizada a seguinte concepção
 
 <br>
 
-![Abordagem_1](docs/imgs/Peek%202022-11-24%2021-49.gifPeek 2022-11-24 21-49.gif)
+![Abordagem_1](docs/imgs/abordagem_1.gif)
 
 <br>
 
@@ -63,7 +81,7 @@ A partir do [diretório do Estado de São Paulo](https://geo.fbds.org.br/SP/), c
 
 <br>
 
-![Abordagem_2](docs/imgs/Peek%202022-11-24%2021-49.gifPeek 2022-11-24 21-53.gif)
+![Abordagem_2](docs/imgs/abordagem_2.gif)
 
 <br>
 
