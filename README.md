@@ -17,6 +17,7 @@ Desenvolvi _scripts_ para fazer o _download_ dos _layers_ do estado de São Paul
 | 5   | hidro_nascentes | HIDROGRAFIA | 60,0 MB |
 | 6   | hidro_massa     | HIDROGRAFIA |  124 MB |
 | 7   | uso             | USO         | 3,89 GB |
+|     | Total           |             | 7,87 GB |
 
 <br>
 
