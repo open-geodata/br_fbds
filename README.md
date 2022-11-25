@@ -4,20 +4,20 @@
 
 <br>
 
-Em novembro de 2022 surgiu a necessidade/curiosidade de melhor compreender os dados de hidrologia e uso do solo disponibilizados pela [Fundação Brasileira para o Desenvolvimento Sustentável (FBDS)](https://www.fbds.org.br). Os dados são disponibilizados em um [**repositório público de mapas e _shapefiles_ para _download_**](https://geo.fbds.org.br/).
+Em novembro de 2022 surgiu a necessidade/curiosidade de melhor compreender os dados de hidrologia e uso do solo disponibilizados pela [Fundação Brasileira para o Desenvolvimento Sustentável (FBDS)](https://www.fbds.org.br). Os dados são utilizados em projetos de pesquisa (Biota-Síntese e outros) e são disponibilizados em um [**repositório público de mapas e _shapefiles_ para _download_**](https://geo.fbds.org.br/).
 
-Desenvolvi _scripts_ para fazer o _download_ dos _layers_ do estado de São Paulo. Podem ser usados para outros estados. O resultado forma a criação de 7 _layers_:
+Para obter os dados desenvolvi _scripts_ para fazer o _download_ dos _layers_ do estado de São Paulo. As rotinas podem ser usadas para outros estados. O resultado formou a criação de 7 _layers_ em formato _geopackage_:
 
-| id  | _Layer_         | Subpasta    | Tamanho |
-| :-- | :-------------- | :---------- | ------: |
-| 1   | app             | APP         |  994 MB |
-| 2   | app_uso         | APP         | 2,07 GB |
-| 3   | hidro_simples   | HIDROGRAFIA |  673 MB |
-| 4   | hidro_duplas    | HIDROGRAFIA | 93,8 MB |
-| 5   | hidro_nascentes | HIDROGRAFIA | 60,0 MB |
-| 6   | hidro_massa     | HIDROGRAFIA |  124 MB |
-| 7   | uso             | USO         | 3,89 GB |
-|     | Total           |             | 7,87 GB |
+| id  | _Layer_              | Subpasta    | Tamanho |
+| :-- | :------------------- | :---------- | ------: |
+| 1   | app.gpkg             | APP         |  994 MB |
+| 2   | app_uso.gpkg         | APP         | 2,07 GB |
+| 3   | hidro_simples.gpkg   | HIDROGRAFIA |  673 MB |
+| 4   | hidro_duplas.gpkg    | HIDROGRAFIA | 93,8 MB |
+| 5   | hidro_nascentes.gpkg | HIDROGRAFIA | 60,0 MB |
+| 6   | hidro_massa.gpkg     | HIDROGRAFIA |  124 MB |
+| 7   | uso.gpkg             | USO         | 3,89 GB |
+|     | Total                |             | 7,87 GB |
 
 <br>
 
@@ -37,11 +37,11 @@ Abaixo segue informações obtidas no _site_ da Fundação:
 
 ## _h5ai_
 
-A interface do repositório foi construída em com o _framework_ [**_h5ai_**](https://larsjung.de/h5ai) que, se assemelha, a estrutura de um servidor FTP. Foi importante estudar o funcionamento do _framework_, do lado do cliente, para descobrir melhores maneiras de "raspar" os dados.
+A interface do repositório foi construída em com o _framework_ [**_h5ai_**](https://larsjung.de/h5ai) que se assemelha a estrutura de um servidor FTP. Foi importante estudar o funcionamento do _framework_, do lado do cliente, para descobrir as melhores maneiras de "raspar" os dados.
 
-Pesquisei a possibilidade de existirem APis em python para "raspar", de modo facilitado, os dados. Na ausência de APIs, foi necessário pensar em técnicas de _webscrapping_.
+Pesquisei a possibilidade de existirem APIs em python para "raspar", de modo facilitado. Na ausência de APIs públicas, foi necessário pensar em técnicas de _webscrapping_.
 
-Pesquisando sobre APIs para Com falha utilizar o _framework_ [**_h5ai_**](https://larsjung.de/h5ai), encontrei insformação sobre um _bug_, no [Exploit-DB.com](https://www.exploit-db.com/exploits/38256)
+Pesquisando sobre APIs para utilizar com o _framework_ [**_h5ai_**](https://larsjung.de/h5ai), encontrei informação sobre um _bug_, no [Exploit-DB.com](https://www.exploit-db.com/exploits/38256). (a ser pequisado...)
 
 <br>
 
@@ -51,9 +51,9 @@ Pesquisando sobre APIs para Com falha utilizar o _framework_ [**_h5ai_**](https:
 
 ### Primeira Abordagem (_ruim e, portanto, descontinuada_)
 
-A ideia então utilizada foi obter a lista dos arquivos para, posteriormente, fazer o _download_.
+A concepção empregada foi obter a lista dos arquivos em formato tabular (_.csv_) para, posteriormente, fazer o _download_.
 
-Usando o _./scripts_/**01_get_data.ipynb**, foi utilizada a seguinte concepção: Para criar a lista de arquivos, fiz com auxílio do _selenium_. Com o _driver_ eram realizados os seguintes procedimentos:
+Usando o [_./scripts_/**01_get_data.ipynb**](scripts/01_get_data.ipynb), foi utilizada a seguinte concepção: Para criar a lista de arquivos, fiz com auxílio do _selenium_. Com o _driver_ eram realizados os seguintes procedimentos:
 
 1. Listar todos as **Subpastas** e **Arquivos** de um diretório raiz;
 2. Para cada **Subpasta** encontrada, entra-se nela, e repetir o procedimento de listar **Arquivos**), retornando para a pasta anterior ao final
@@ -66,7 +66,7 @@ Usando o _./scripts_/**01_get_data.ipynb**, foi utilizada a seguinte concepção
 
 <br>
 
-Uma vez com todos os links, foi realizado o download usando o JDownloder, com arquivo _./scripts_/**03_download_list_files.ipynb**
+Uma vez com todos os links, foi realizado o download usando o JDownloder, com arquivo [_scripts_/**03_download_list_files.ipynb**](scripts/03_download_list_files.ipynb)
 
 <br>
 
@@ -74,7 +74,7 @@ Uma vez com todos os links, foi realizado o download usando o JDownloder, com ar
 
 ### Segunda Abordagem (_melhor!!_)
 
-A partir do [diretório do Estado de São Paulo](https://geo.fbds.org.br/SP/), com 645 pastas (uma para cada município), foi realizado o _download_ da pasta, resultando em 645 arquivos _.tar_. Isso foi feito com o arquivo _./scripts_/**01_get_data.ipynb**. A ideia era:
+A partir do [diretório do Estado de São Paulo](https://geo.fbds.org.br/SP/), com 645 pastas (uma para cada município), foi realizado o _download_ da pasta, resultando em 645 arquivos _.tar_. Isso foi feito com o arquivo [_./scripts_/**01_get_data.ipynb**](scripts/01_get_data.ipynb). A ideia era:
 
 1. Listar todos as **Subpastas** (que represetam os municípios) de um diretório raiz;
 2. Usando os conceitos de [_ActionChains_](https://www.selenium.dev/selenium/docs/api/py/webdriver/selenium.webdriver.common.action_chains.html), passar o mouse sobre a pasta e clicar nela.
@@ -86,7 +86,7 @@ A partir do [diretório do Estado de São Paulo](https://geo.fbds.org.br/SP/), c
 
 <br>
 
-Após isso, com uso do _scripts_/**02_adjust_data.ipynb**, foram feitos os seguintes procedimentos:
+Após isso, com uso do [_scripts_/**02_adjust_data.ipynb**](scripts/02_adjust_data.ipynb), foram feitos os seguintes procedimentos:
 
 1. Listar todos os arquivos _shapefile (.shp)_ que estão dentro dos arquivos _.tar_, sem descompactar!
 2. Criar uma tabela com essa lista de arquivos.
