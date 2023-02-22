@@ -9,22 +9,12 @@ from pathlib import Path
 
 project_path = Path(__file__).parents[1]
 
-
-# Scrapy
-scrapy_path = project_path / 'scrapy'
-scrapy_path.mkdir(exist_ok=True)
-
-logs_path = scrapy_path / 'logs'
-logs_path.mkdir(exist_ok=True)
-
-adds_path = scrapy_path / 'adds'
-adds_path.mkdir(exist_ok=True)
-
-driver_path = scrapy_path / 'driver'
-driver_path.mkdir(exist_ok=True)
+# Datasets Path
+dataset_path = Path(project_path.anchor) / 'Datasets' / project_path.name
+dataset_path.mkdir(exist_ok=True)
 
 # Data
-data_path = project_path / 'data'
+data_path = dataset_path / 'data'
 data_path.mkdir(exist_ok=True)
 
 # Input
@@ -48,9 +38,21 @@ output_path_gpkg = output_path / 'gpkg'
 output_path_gpkg.mkdir(exist_ok=True)
 
 # Docs
-docs_path = project_path / 'docs'
+docs_path = dataset_path / 'docs'
 docs_path.mkdir(exist_ok=True)
 
+# Scrapy
+scrapy_path = project_path / 'scrapy'
+scrapy_path.mkdir(exist_ok=True)
+
+logs_path = scrapy_path / 'logs'
+logs_path.mkdir(exist_ok=True)
+
+adds_path = scrapy_path / 'adds'
+adds_path.mkdir(exist_ok=True)
+
+driver_path = scrapy_path / 'driver'
+driver_path.mkdir(exist_ok=True)
 
 if __name__ == '__main__':
     print(project_path)
